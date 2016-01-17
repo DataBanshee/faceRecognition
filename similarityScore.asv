@@ -1,0 +1,20 @@
+function X = similarityScore(testFaceFeat,trainFaceFeat)
+
+rec =[];
+
+
+for i=1:length(testFaceFeat)
+    Euc_dist =[];
+    for j=1:length(trainFaceFeat)
+        temp = ( norm(testFaceFeat(i,:) - trainFaceFeat(j,:) ) )^2;
+        Euc_dist = [Euc_dist 1/(1+temp)];
+    end
+    [Euc_dist_min , Recognized_index] = min(Euc_dist);
+    rec=[rec Recognized_index];
+    
+end
+
+
+
+
+end
